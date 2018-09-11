@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
+    @categories = @post.categories
+    @users = []
+    @post.comments.all.each do |comment|
+      @user = User.find_by(username: comment.user.username)
+      if !@users.include?(@user)
+        @users << @user
+      end
+    end
   end
 
   def index
@@ -15,6 +25,8 @@ class PostsController < ApplicationController
     post = Post.create(post_params)
     redirect_to post
   end
+  
+ 
 
   private
 
