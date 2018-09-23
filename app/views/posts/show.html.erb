@@ -2,7 +2,11 @@
 <h2><%= @post.content%></h2>
 <ul>
 <%@comments.each do |comment|%>
+<<<<<<< HEAD
   <li><%="#{comment.user.username} says: #{comment.content}"%></li>
+=======
+  <li><%= comment.content%></li>
+>>>>>>> 900cb014dd9705a3a76c53e9a546942e1799e24c
 <%end%>
 </ul>
 <ul>
@@ -10,6 +14,7 @@
   <li><%= link_to "#{user.username}", user_path(user) %></li>
 <%end%>
 </ul>
+<<<<<<< HEAD
 <ul>
 <%@categories.each do |category|%>
   <li><%= category.name %></li>
@@ -25,3 +30,6 @@
   <%= f.hidden_field :post_id, :value => @post.id %>
   <%= f.submit %>
 <%end %>
+=======
+
+>>>>>>> 900cb014dd9705a3a76c53e9a546942e1799e24c

@@ -2,8 +2,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
+<<<<<<< HEAD
     @comment = Comment.new
     @categories = @post.categories
+=======
+>>>>>>> 900cb014dd9705a3a76c53e9a546942e1799e24c
     @users = []
     @post.comments.all.each do |comment|
       @user = User.find_by(username: comment.user.username)
